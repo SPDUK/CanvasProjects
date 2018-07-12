@@ -8,16 +8,23 @@ import './snake.css';
 class Snake extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      score: 0,
+      highScore: 0
+    };
   }
 
   componentDidMount() {
     // set up the event listeners for controls
     // update the state with the new direction
     const canv = document.getElementById('gc');
+    if (window.innerWidth < 400) {
+      canv.width = 300;
+      canv.height = 300;
+    }
     const ctx = canv.getContext('2d');
     const gs = 20;
-    const tc = 20;
+    const tc = canv.width / 20;
     let ax = 15;
     let ay = 15;
     let xv = 0;
@@ -28,9 +35,6 @@ class Snake extends Component {
     let tail = 5;
     let lastPress;
     const keyPush = evt => {
-      // eslint-ignore-next-line
-      console.log(evt);
-      console.log(lastPress);
       if (lastPress === 37 && evt.keyCode === 39) {
         return;
       }
@@ -44,7 +48,6 @@ class Snake extends Component {
         return;
       }
       lastPress = evt.keyCode;
-      console.log(lastPress);
 
       switch (evt.keyCode) {
         case 37:
@@ -84,13 +87,16 @@ class Snake extends Component {
       if (py > tc - 1) {
         py = 0;
       }
-      ctx.fillStyle = 'black';
+      ctx.fillStyle = '#212121';
       ctx.fillRect(0, 0, canv.width, canv.height);
 
-      ctx.fillStyle = 'lime';
+      ctx.fillStyle = '#9FFF98';
       for (let i = 0; i < trail.length; i += 1) {
         ctx.fillRect(trail[i].x * gs, trail[i].y * gs, gs - 2, gs - 2);
         if (trail[i].x === px && trail[i].y === py) {
+          this.setState({
+            score: 0
+          });
           tail = 5;
         }
       }
@@ -101,10 +107,13 @@ class Snake extends Component {
 
       if (ax === px && ay === py) {
         tail += 1;
+        this.setState({
+          score: this.state.score + 100
+        });
         ax = Math.floor(Math.random() * tc);
         ay = Math.floor(Math.random() * tc);
       }
-      ctx.fillStyle = 'red';
+      ctx.fillStyle = '#FF6C6C';
       ctx.fillRect(ax * gs, ay * gs, gs - 2, gs - 2);
     };
     setInterval(game, 1000 / 15);
@@ -113,7 +122,10 @@ class Snake extends Component {
   render() {
     return (
       <div className="container snake">
-        <canvas id="gc" className="snake-canvas" width="400" height="400" />
+        <h1 className="snake-score is-size-1">Score: {this.state.score}</h1>
+        <div className="snake-canvas">
+          <canvas id="gc" className="snake-canvas" width="400" height="400" />
+        </div>
       </div>
     );
   }
