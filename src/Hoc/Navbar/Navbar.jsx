@@ -18,7 +18,10 @@ const Navbar = () => (
       </div>
       <div className="navbar-end">
         <a className="navbar-item" href="https://github.com/SPDUK">
-          My Github | SPDUK 🏡
+          Github
+          <span className="navbar-item" aria-label="house" role="img">
+            🏡
+          </span>
         </a>
       </div>
     </div>
