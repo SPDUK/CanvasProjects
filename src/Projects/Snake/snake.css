@@ -1,0 +1,6 @@
+.snake {
+  display: flex;
+  justify-content: center; }
+  .snake-canvas {
+    width: 400px;
+    height: 400px; }

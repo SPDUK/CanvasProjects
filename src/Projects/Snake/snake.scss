@@ -1,0 +1,9 @@
+.snake {
+  display: flex;
+  justify-content: center;
+  &-canvas {
+    // background-color: rgb(24, 24, 24);
+    width: 400px;
+    height: 400px;
+  }
+}
