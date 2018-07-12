@@ -10,7 +10,8 @@ class Snake extends Component {
     super();
     this.state = {
       score: 0,
-      highScore: 0
+      highScore: 0,
+      play: true
     };
   }
 
@@ -73,6 +74,10 @@ class Snake extends Component {
     document.addEventListener('keydown', keyPush);
 
     const game = () => {
+      if (!this.state.play) {
+        return;
+      }
+
       px += xv;
       py += yv;
       if (px < 0) {
@@ -94,9 +99,17 @@ class Snake extends Component {
       for (let i = 0; i < trail.length; i += 1) {
         ctx.fillRect(trail[i].x * gs, trail[i].y * gs, gs - 2, gs - 2);
         if (trail[i].x === px && trail[i].y === py) {
-          this.setState({
-            score: 0
-          });
+          if (this.state.score > 0) {
+            if (this.state.score > this.state.highScore) {
+              this.setState({
+                highScore: this.state.score
+              });
+            }
+            this.setState({
+              score: 0,
+              play: false
+            });
+          }
           tail = 5;
         }
       }
@@ -116,13 +129,36 @@ class Snake extends Component {
       ctx.fillStyle = '#FF6C6C';
       ctx.fillRect(ax * gs, ay * gs, gs - 2, gs - 2);
     };
+
     setInterval(game, 1000 / 15);
   }
 
   render() {
     return (
-      <div className="container snake">
-        <h1 className="snake-score is-size-1">Score: {this.state.score}</h1>
+      // eslint-disable-next-line
+      <div 
+        onClick={() => {
+          this.setState({
+            play: true
+          });
+        }}
+        className="container snake"
+      >
+        <h1 className="snake-score is-size-3">Score: {this.state.score}</h1>
+        {!this.state.play ? (
+          <article className="message is-danger snake-message">
+            <div className="message-header">
+              <p className="has-text-weight-bold">You Lost!</p>
+              <button className="delete" aria-label="delete" />
+            </div>
+            <div className="message-body">
+              <p className="has-text-weight-semibold">
+                Current HighScore: {this.state.highScore}
+              </p>
+              <p>Click anywhere to play again.</p>
+            </div>
+          </article>
+        ) : null}
         <div className="snake-canvas">
           <canvas id="gc" className="snake-canvas" width="400" height="400" />
         </div>

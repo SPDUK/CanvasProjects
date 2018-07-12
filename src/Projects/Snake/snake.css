@@ -1,7 +1,14 @@
-.snake-canvas {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center; }
-
-.snake-score {
-  text-align: center; }
+.snake {
+  overflow: hidden; }
+  .snake-canvas {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; }
+  .snake-score {
+    text-align: center; }
+  .snake-message {
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+    text-align: center; }
