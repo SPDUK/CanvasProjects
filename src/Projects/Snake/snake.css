@@ -1,5 +1,5 @@
 .snake {
-  overflow: hidden; }
+  width: 100%; }
   .snake-canvas {
     margin-top: 10px;
     display: flex;
@@ -10,5 +10,11 @@
     width: 400px;
     position: absolute;
     left: 50%;
+    margin-top: -100px;
     margin-left: -200px;
     text-align: center; }
+  .snake-controls {
+    font-size: 1.2em;
+    text-align: center; }
+    .snake-controls span {
+      font-weight: 600; }

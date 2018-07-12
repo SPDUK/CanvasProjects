@@ -134,6 +134,11 @@ class Snake extends Component {
   }
 
   render() {
+    if (!this.state.play) {
+      document.body.style.cursor = 'pointer';
+    } else {
+      document.body.style.cursor = 'default';
+    }
     return (
       // eslint-disable-next-line
       <div 
@@ -143,6 +148,7 @@ class Snake extends Component {
           });
         }}
         className="container snake"
+        id="snake"
       >
         <h1 className="snake-score is-size-3">Score: {this.state.score}</h1>
         {!this.state.play ? (
@@ -161,6 +167,14 @@ class Snake extends Component {
         ) : null}
         <div className="snake-canvas">
           <canvas id="gc" className="snake-canvas" width="400" height="400" />
+        </div>
+        <div className="snake-controls">
+          <p>
+            Use the <span>Arrow Keys</span> to control the snake. 🐍
+          </p>
+          <p>
+            You <span>can</span> wrap around.
+          </p>
         </div>
       </div>
     );
