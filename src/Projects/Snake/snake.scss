@@ -18,10 +18,13 @@
   }
   &-controls {
     font-size: 1.2em;
-    text-align: center; 
+    text-align: center;
     span {
       font-weight: 600;
     }
+    &-difficulty {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
   }
 }
-

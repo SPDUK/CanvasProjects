@@ -11,7 +11,8 @@ class Snake extends Component {
     this.state = {
       score: 0,
       highScore: 0,
-      play: true
+      play: true,
+      hard: false
     };
   }
 
@@ -68,7 +69,7 @@ class Snake extends Component {
           yv = 1;
           break;
         default:
-          console.log('hmm');
+          console.log('this should never happen');
       }
     };
     document.addEventListener('keydown', keyPush);
@@ -119,6 +120,12 @@ class Snake extends Component {
       }
 
       if (ax === px && ay === py) {
+        if (this.state.hard) {
+          tail += 5;
+          this.setState({
+            score: this.state.score + 400
+          });
+        }
         tail += 1;
         this.setState({
           score: this.state.score + 100
@@ -162,7 +169,7 @@ class Snake extends Component {
             </div>
             <div className="message-body">
               <p className="has-text-weight-semibold">
-                Current HighScore: {this.state.highScore}
+                Current High Score: {this.state.highScore}
               </p>
               <p>Click anywhere to play again.</p>
             </div>
@@ -172,12 +179,27 @@ class Snake extends Component {
           <canvas id="gc" className="snake-canvas" width="400" height="400" />
         </div>
         <div className="snake-controls">
+          <div
+            onClick={() => {
+              this.setState({
+                hard: !this.state.hard
+              });
+            }}
+            className="snake-controls-difficulty"
+          >
+            {!this.state.hard ? (
+              <span className="button is-danger">Try Hard Mode!</span>
+            ) : (
+              <span className="button is-success">Back to easy mode</span>
+            )}
+          </div>
+
           <p>
             Use the <span>Arrow Keys</span> to control the snake. 🐍
           </p>
           <p>The game will start when you press any arrow key.</p>
           <p>
-            You <span>can</span> wrap around.
+            You will<span> not</span> lose if you touch the walls
           </p>
         </div>
       </div>
