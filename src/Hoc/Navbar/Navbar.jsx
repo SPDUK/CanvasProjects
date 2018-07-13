@@ -48,13 +48,13 @@ const Navbar = () => (
       >
         <Link to="/snake" className="navbar-item">
           Snake{' '}
-          <span aria-label="house" role="img">
+          <span aria-label="snake" role="img">
             🐍
           </span>
         </Link>
-        <Link to="/gravity" className="navbar-item ">
+        <Link to="/gravity" className="navbar-item">
           Gravity{' '}
-          <span aria-label="house" role="img">
+          <span aria-label="gravity" role="img">
             🌌
           </span>
         </Link>
