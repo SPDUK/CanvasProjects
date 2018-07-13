@@ -18,12 +18,16 @@ class BouncingBalls extends Component {
       y: undefined
     };
     const maxRadius = 80;
-    // const minRadius = 2;
-    const colors = ['#ffaa33', '#99ffaa', '#00ff00', '#4411aa', '#ff1100'];
+    const colors = ['#E74C3C', '#2C3E50', '#FF9130', '#3498DB', '#2980B9'];
 
     window.addEventListener('mousemove', e => {
       mouse.x = e.x;
       mouse.y = e.y;
+    });
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
     });
 
     function Circle(x, y, dx, dy, radius) {
@@ -59,10 +63,10 @@ class BouncingBalls extends Component {
 
         // interactivity mouseover
         if (
-          mouse.x - this.x < 50 &&
-          mouse.x - this.x > -50 &&
-          mouse.y - this.y < 50 &&
-          mouse.y - this.y > -50
+          mouse.x - this.x < 60 &&
+          mouse.x - this.x > -60 &&
+          mouse.y - this.y < 60 &&
+          mouse.y - this.y > -60
         ) {
           if (this.radius < maxRadius) {
             this.radius += 1;
@@ -75,9 +79,9 @@ class BouncingBalls extends Component {
       };
     }
 
-    const circles = [];
-    for (let i = 0; i < 100; i += 1) {
-      const radius = Math.random() * 4 + 1;
+    let circles = [];
+    for (let i = 0; i < 300; i += 1) {
+      const radius = Math.random() * 10 + 3;
       const x = Math.random() * (window.innerWidth - radius * 2) + radius;
       const y = Math.random() * (window.innerHeight - radius * 2) + radius;
       // velocity (how fast it moves)
@@ -85,6 +89,19 @@ class BouncingBalls extends Component {
       const dy = (Math.random() - 0.5) * 3;
       circles.push(new Circle(x, y, dx, dy, radius));
     }
+
+    const init = () => {
+      circles = [];
+      for (let i = 0; i < 100; i += 1) {
+        const radius = Math.random() * 10 + 3;
+        const x = Math.random() * (window.innerWidth - radius * 2) + radius;
+        const y = Math.random() * (window.innerHeight - radius * 2) + radius;
+        // velocity (how fast it moves)
+        const dx = (Math.random() - 0.5) * 3;
+        const dy = (Math.random() - 0.5) * 3;
+        circles.push(new Circle(x, y, dx, dy, radius));
+      }
+    };
 
     const animate = () => {
       requestAnimationFrame(animate);
