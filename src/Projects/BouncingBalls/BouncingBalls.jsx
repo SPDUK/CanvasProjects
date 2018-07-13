@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import './bouncingballs.css';
-
 class BouncingBalls extends Component {
   componentDidMount() {
     this.createCanvas();
@@ -10,7 +8,7 @@ class BouncingBalls extends Component {
   createCanvas() {
     const canvas = document.querySelector('canvas');
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight - 58;
+    canvas.height = window.innerHeight - 57.5;
     const c = canvas.getContext('2d');
 
     const mouse = {
@@ -24,12 +22,6 @@ class BouncingBalls extends Component {
       mouse.x = e.x;
       mouse.y = e.y;
     });
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      init();
-    });
-
     function Circle(x, y, dx, dy, radius) {
       this.x = x;
       this.y = y;
@@ -85,23 +77,31 @@ class BouncingBalls extends Component {
       const x = Math.random() * (window.innerWidth - radius * 2) + radius;
       const y = Math.random() * (window.innerHeight - radius * 2) + radius;
       // velocity (how fast it moves)
-      const dx = (Math.random() - 0.5) * 3;
-      const dy = (Math.random() - 0.5) * 3;
+      const dx = (Math.random() - 0.5) * 5;
+      const dy = (Math.random() - 0.5) * 5;
       circles.push(new Circle(x, y, dx, dy, radius));
     }
 
+    // for resizing, reloads everything when resized
     const init = () => {
+      // empties the circles array to stop it from endlessly pushing more circles on resize
       circles = [];
       for (let i = 0; i < 100; i += 1) {
         const radius = Math.random() * 10 + 3;
         const x = Math.random() * (window.innerWidth - radius * 2) + radius;
         const y = Math.random() * (window.innerHeight - radius * 2) + radius;
         // velocity (how fast it moves)
-        const dx = (Math.random() - 0.5) * 3;
-        const dy = (Math.random() - 0.5) * 3;
+        const dx = (Math.random() - 0.5) * 5;
+        const dy = (Math.random() - 0.5) * 5;
         circles.push(new Circle(x, y, dx, dy, radius));
       }
     };
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
+    });
 
     const animate = () => {
       requestAnimationFrame(animate);
