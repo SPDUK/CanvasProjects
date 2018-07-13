@@ -1,7 +1,8 @@
 #  Quick projects
 ### To run start you need to install npm-run-all, globally works
 
-
+Example of random stuff in this repo:
+https://spduk.github.io/bouncingballs
 
 Plans:
 
