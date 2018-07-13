@@ -5,8 +5,8 @@
 
 Plans:
 
-Some kind of snake game (finished)
-Something to do with gravity, things falling from the top of the screen to the bottom
-Drag and drop elements
-Some kind of physics thing? Things hitting eachother?
-Maybe a type of drawing app, or at very least the ability to paint on the canvas.
+- Some kind of snake game (finished)
+- Something to do with gravity, things falling from the top of the screen to the bottom
+- Drag and drop elements
+- Some kind of physics thing? Things hitting eachother?
+- Maybe a type of drawing app, or at very least the ability to paint on the canvas.
