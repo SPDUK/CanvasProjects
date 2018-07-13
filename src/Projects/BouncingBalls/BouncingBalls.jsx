@@ -51,6 +51,8 @@ class BouncingBalls extends Component {
         c.arc(this.x, this.y, 30, 0, Math.PI * 2, false);
         c.strokeStyle = 'blue';
         c.stroke();
+        c.fillStyle = '#ff5151';
+        c.fill();
       };
 
       this.update = () => {
@@ -74,12 +76,12 @@ class BouncingBalls extends Component {
 
     const circles = [];
     for (let i = 0; i < 10; i += 1) {
-      const x = Math.random() * window.innerWidth;
-      const y = Math.random() * window.innerHeight;
+      const radius = 30;
+      const x = Math.random() * (window.innerWidth - radius * 2) + radius;
+      const y = Math.random() * (window.innerHeight - radius * 2) + radius;
       // velocity (how fast it moves)
       const dx = (Math.random() - 0.5) * 20;
       const dy = (Math.random() - 0.5) * 20;
-      const radius = 30;
       circles.push(new Circle(x, y, dx, dy, 30));
     }
 
@@ -88,6 +90,9 @@ class BouncingBalls extends Component {
       requestAnimationFrame(animate);
       // // circle.draw();
       c.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      for (let i = 0; i < circles.length; i += 1) {
+        circles[i].update();
+      }
     };
     animate();
   }
