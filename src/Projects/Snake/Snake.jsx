@@ -150,7 +150,10 @@ class Snake extends Component {
         className="container snake"
         id="snake"
       >
-        <h1 className="snake-score is-size-3">Score: {this.state.score}</h1>
+        <h3 className="snake-score is-size-3">Score: {this.state.score}</h3>
+        <h5 className="snake-score is-size-5">
+          HighScore: {this.state.highScore}
+        </h5>
         {!this.state.play ? (
           <article className="message is-danger snake-message">
             <div className="message-header">
@@ -172,6 +175,7 @@ class Snake extends Component {
           <p>
             Use the <span>Arrow Keys</span> to control the snake. 🐍
           </p>
+          <p>The game will start when you press any arrow key.</p>
           <p>
             You <span>can</span> wrap around.
           </p>

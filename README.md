@@ -1,12 +1,11 @@
-# Canvas Stuff
-
+#  Quick projects
 ### To run start you need to install npm-run-all, globally works
 
 
 
 Plans:
 
-Some kind of snake game
+Some kind of snake game (finished)
 Something to do with gravity, things falling from the top of the screen to the bottom
 Drag and drop elements
 Some kind of physics thing? Things hitting eachother?
