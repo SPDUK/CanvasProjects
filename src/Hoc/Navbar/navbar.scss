@@ -18,7 +18,7 @@
       height: 0px
     }
     100% {
-      height: 150px
+      height: 160px
     }
   } // closing animation
   .navbar-menu.is-closed {
@@ -32,7 +32,7 @@
   }
   @keyframes burger-menu-close {
     0% {
-      height: 150px;
+      height: 160px;
       display: block
     }
     99% {
@@ -42,13 +42,19 @@
       height: 0px;
       display: none
     }
-  }
+  } // styles for navbar menu items
   .navbar-menu {
     .navbar-item {
-      padding-bottom: 15px;
-      padding-bottom: 15px;
+      padding-bottom: 12.5px;
+      padding-top: 12.5px;
       font-weight: 600;
       border-bottom: 1px solid #f3f3f3
+    }
+  }
+  .navbar-burger {
+    span {
+      color: #fafafa;
+      height: 1.5px;
     }
   }
 }

@@ -38,7 +38,14 @@ const Navbar = () => (
           <span aria-hidden="true" />
         </a>
       </div>
-      <div id="navMenu" className="navbar-menu">
+      {/* if the menu is clicked (including any element inside it) it will toggle it closed */}
+      <div
+        onClick={toggleBurger}
+        tabIndex="-1"
+        role="button"
+        id="navMenu"
+        className="navbar-menu"
+      >
         <Link to="/snake" className="navbar-item">
           Snake{' '}
           <span aria-label="house" role="img">
