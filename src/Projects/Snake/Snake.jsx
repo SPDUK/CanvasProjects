@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 
 // import ReactAux from '../../Hoc/ReactAux/ReactAux';
 import './snake.css';
@@ -20,23 +21,32 @@ class Snake extends Component {
     // set up the event listeners for controls
     // update the state with the new direction
     const canv = document.getElementById('gc');
+    console.log(window.innerWidth);
     if (window.innerWidth < 400) {
       canv.width = 300;
       canv.height = 300;
+      console.log('????');
+    } else if (window.innerWidth < 600) {
+      canv.width = 400;
+      canv.height = 400;
+    } else {
+      canv.width = 600;
+      canv.height = 600;
     }
     const ctx = canv.getContext('2d');
     const gs = 20;
     const tc = canv.width / 20;
-    let ax = 15;
-    let ay = 15;
+    let ax = 10;
+    let ay = 10;
     let xv = 0;
     let yv = 0;
-    let px = 10;
-    let py = 10;
+    let px = 5;
+    let py = 5;
     const trail = [];
     let tail = 5;
     let lastPress;
     const keyPush = evt => {
+      console.log('PRESSED');
       if (lastPress === 37 && evt.keyCode === 39) {
         return;
       }
@@ -72,7 +82,8 @@ class Snake extends Component {
           console.log('this should never happen');
       }
     };
-    document.addEventListener('keydown', keyPush);
+    // throttled to 15ms so you can't accidentally die by turning into yourself in the same game tick
+    document.addEventListener('keydown', _.throttle(keyPush, 15), false);
 
     const game = () => {
       if (!this.state.play) {
@@ -176,7 +187,7 @@ class Snake extends Component {
           </article>
         ) : null}
         <div className="snake-canvas">
-          <canvas id="gc" className="snake-canvas" width="400" height="400" />
+          <canvas id="gc" className="snake-canvas" />
         </div>
         <div className="snake-controls">
           {/* eslint-disable-next-line */}
