@@ -6,6 +6,7 @@ class Gravity extends Component {
     this.createCanvas();
   }
 
+  // eslint-disable-next-line
   createCanvas() {
     // utils
     function randomIntFromRange(min, max) {
@@ -23,19 +24,18 @@ class Gravity extends Component {
       return Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2));
     }
 
-    console.log(this);
     const canvas = document.querySelector('canvas');
     const c = canvas.getContext('2d');
 
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = window.innerHeight - 58;
 
     const mouse = {
       x: window.innerWidth / 2,
       y: window.innerHeight / 2
     };
 
-    const colors = ['#2185C5', '#7ECEFD', '#FFF6E5', '#FF7F66'];
+    const colors = ['#9f2bff', '#ec9bff', '#2b1eb5', '#604096'];
 
     // Event Listeners
     window.addEventListener('mousemove', event => {
@@ -59,14 +59,22 @@ class Gravity extends Component {
       this.radians = Math.random() * Math.PI * 2;
       this.velocity = 0.05;
       this.distanceFromCenter = randomIntFromRange(50, 120);
+      this.lastMouse = { x, y };
 
       this.update = () => {
         const lastPoint = { x: this.x, y: this.y };
         // move points over time
         this.radians += this.velocity;
+
+        // drag effects
+        this.lastMouse.x += (mouse.x - this.lastMouse.x) * 0.05;
+        this.lastMouse.y += (mouse.y - this.lastMouse.y) * 0.05;
+
         // circular movement
-        this.x = x + Math.cos(this.radians) * this.distanceFromCenter;
-        this.y = y + Math.sin(this.radians) * this.distanceFromCenter;
+        this.x =
+          this.lastMouse.x + Math.cos(this.radians) * this.distanceFromCenter;
+        this.y =
+          this.lastMouse.y + Math.sin(this.radians) * this.distanceFromCenter;
         this.draw(lastPoint);
       };
       this.draw = lastPoint => {
@@ -85,18 +93,23 @@ class Gravity extends Component {
     function init() {
       particles = [];
 
-      for (let i = 0; i < 30; i += 1) {
+      for (let i = 0; i < 50; i += 1) {
+        const radius = Math.random() * 2 + 1;
         particles.push(
-          new Particle(canvas.width / 2, canvas.height / 2, 5, 'blue')
+          new Particle(
+            canvas.width / 2,
+            canvas.height / 2,
+            radius,
+            randomColor(colors)
+          )
         );
       }
-      console.log(particles);
     }
 
     // Animation Loop
     function animate() {
       requestAnimationFrame(animate);
-      c.fillStyle = 'rgba(255, 255, 255, 0.05)';
+      c.fillStyle = 'rgba(12, 12, 12, 0.03)';
       c.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach(particle => {
@@ -108,7 +121,7 @@ class Gravity extends Component {
     animate();
   }
   render() {
-    return <canvas />;
+    return <canvas style={{ cursor: 'none' }} />;
   }
 }
 
