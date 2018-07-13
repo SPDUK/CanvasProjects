@@ -20,7 +20,7 @@ const Navbar = () => (
     <div className="container">
       <div className="navbar-brand">
         <a href="/" className="navbar-item">
-          <strong>Canvas Stuff!</strong>
+          <strong>Quick Projects!</strong>
         </a>
         <a
           id="burger"
