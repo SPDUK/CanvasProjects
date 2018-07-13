@@ -40,7 +40,7 @@ const Navbar = () => (
       </div>
       <div id="navMenu" className="navbar-menu">
         <Link to="/snake" className="navbar-item">
-          Snake
+          Snake{' '}
           <span aria-label="house" role="img">
             🐍
           </span>
@@ -53,7 +53,7 @@ const Navbar = () => (
         </Link>
         <div className="navbar-end">
           <a className="navbar-item" href="https://github.com/SPDUK">
-            Github
+            Github{' '}
             <span aria-label="house" role="img">
               🏡
             </span>
