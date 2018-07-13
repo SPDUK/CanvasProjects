@@ -179,6 +179,7 @@ class Snake extends Component {
           <canvas id="gc" className="snake-canvas" width="400" height="400" />
         </div>
         <div className="snake-controls">
+          {/* eslint-disable-next-line */}
           <div
             onClick={() => {
               this.setState({
