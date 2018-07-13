@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './gravity.css';
 
 class Gravity extends Component {
   componentDidMount() {
