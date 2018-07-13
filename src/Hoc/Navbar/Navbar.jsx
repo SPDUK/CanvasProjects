@@ -39,6 +39,7 @@ const Navbar = () => (
         </a>
       </div>
       {/* if the menu is clicked (including any element inside it) it will toggle it closed */}
+      {/* eslint-disable-next-line */}
       <div
         onClick={toggleBurger}
         tabIndex="-1"
