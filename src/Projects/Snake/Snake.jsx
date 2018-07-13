@@ -46,7 +46,6 @@ class Snake extends Component {
     let tail = 5;
     let lastPress;
     const keyPush = evt => {
-      console.log('PRESSED');
       if (lastPress === 37 && evt.keyCode === 39) {
         return;
       }
@@ -79,7 +78,7 @@ class Snake extends Component {
           yv = 1;
           break;
         default:
-          console.log('this should never happen');
+          break;
       }
     };
     // throttled to 15ms so you can't accidentally die by turning into yourself in the same game tick
