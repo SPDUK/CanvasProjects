@@ -17,6 +17,10 @@ class BouncingBalls extends Component {
       x: undefined,
       y: undefined
     };
+    const maxRadius = 80;
+    // const minRadius = 2;
+    const colors = ['#ffaa33', '#99ffaa', '#00ff00', '#4411aa', '#ff1100'];
+
     window.addEventListener('mousemove', e => {
       mouse.x = e.x;
       mouse.y = e.y;
@@ -28,13 +32,12 @@ class BouncingBalls extends Component {
       this.dx = dx;
       this.dy = dy;
       this.radius = radius;
-
+      this.minRadius = radius;
+      this.color = colors[Math.floor(Math.random() * colors.length)];
       this.draw = function() {
         c.beginPath();
         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        c.strokeStyle = 'blue';
-        c.stroke();
-        c.fillStyle = '#ff5151';
+        c.fillStyle = this.color;
         c.fill();
       };
 
@@ -59,12 +62,12 @@ class BouncingBalls extends Component {
           mouse.x - this.x < 50 &&
           mouse.x - this.x > -50 &&
           mouse.y - this.y < 50 &&
-          mouse.y > -50
+          mouse.y - this.y > -50
         ) {
-          if (this.radius < 50) {
+          if (this.radius < maxRadius) {
             this.radius += 1;
           }
-        } else if (this.radius > 20) {
+        } else if (this.radius > this.minRadius) {
           this.radius -= 1;
         }
 
@@ -73,14 +76,14 @@ class BouncingBalls extends Component {
     }
 
     const circles = [];
-    for (let i = 0; i < 30; i += 1) {
-      const radius = 30;
+    for (let i = 0; i < 100; i += 1) {
+      const radius = Math.random() * 4 + 1;
       const x = Math.random() * (window.innerWidth - radius * 2) + radius;
       const y = Math.random() * (window.innerHeight - radius * 2) + radius;
       // velocity (how fast it moves)
       const dx = (Math.random() - 0.5) * 3;
       const dy = (Math.random() - 0.5) * 3;
-      circles.push(new Circle(x, y, dx, dy, 20));
+      circles.push(new Circle(x, y, dx, dy, radius));
     }
 
     const animate = () => {
