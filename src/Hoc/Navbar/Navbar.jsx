@@ -2,24 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './navbar.css';
 
-// Bulma navbar toggle
-// document.addEventListener('DOMContentLoaded', () => {
-//   const $navbarBurgers = Array.prototype.slice.call(
-//     document.querySelectorAll('.navbar-burger'),
-//     0
-//   );
-//   if ($navbarBurgers.length > 0) {
-//     $navbarBurgers.forEach(el => {
-//       el.addEventListener('click', () => {
-//         const { target } = el.dataset;
-//         const $target = document.getElementById(target);
-//         el.classList.toggle('is-active');
-//         $target.classList.toggle('is-active');
-//       });
-//     });
-//   }
-// });
-
+// toggle navbar
 const toggleBurger = () => {
   const burgerIcon = document.getElementById('burger');
   const dropMenu = document.getElementById('navMenu');
