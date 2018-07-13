@@ -58,6 +58,12 @@ const Navbar = () => (
             🌌
           </span>
         </Link>
+        <Link to="/bouncingballs" className="navbar-item">
+          Bouncing Balls{' '}
+          <span aria-label="gravity" role="img">
+            🔴
+          </span>
+        </Link>
         <div className="navbar-end">
           <a className="navbar-item" href="https://github.com/SPDUK">
             Github{' '}
