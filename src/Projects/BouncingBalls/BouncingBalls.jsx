@@ -10,7 +10,7 @@ class BouncingBalls extends Component {
   createCanvas() {
     const canvas = document.querySelector('canvas');
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = window.innerHeight - 58;
     const c = canvas.getContext('2d');
 
     const mouse = {
