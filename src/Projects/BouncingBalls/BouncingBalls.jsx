@@ -55,10 +55,17 @@ class BouncingBalls extends Component {
         this.y += this.dy;
 
         // interactivity mouseover
-        console.log(this.x);
-        console.log(mouse.x);
-        if (mouse.x - this.x < 30) {
-          this.radius += 1;
+        if (
+          mouse.x - this.x < 50 &&
+          mouse.x - this.x > -50 &&
+          mouse.y - this.y < 50 &&
+          mouse.y > -50
+        ) {
+          if (this.radius < 50) {
+            this.radius += 1;
+          }
+        } else if (this.radius > 20) {
+          this.radius -= 1;
         }
 
         this.draw();
@@ -66,14 +73,14 @@ class BouncingBalls extends Component {
     }
 
     const circles = [];
-    for (let i = 0; i < 1; i += 1) {
+    for (let i = 0; i < 30; i += 1) {
       const radius = 30;
       const x = Math.random() * (window.innerWidth - radius * 2) + radius;
       const y = Math.random() * (window.innerHeight - radius * 2) + radius;
       // velocity (how fast it moves)
       const dx = (Math.random() - 0.5) * 3;
       const dy = (Math.random() - 0.5) * 3;
-      circles.push(new Circle(x, y, dx, dy, 30));
+      circles.push(new Circle(x, y, dx, dy, 20));
     }
 
     const animate = () => {
