@@ -19,9 +19,9 @@ const Navbar = () => (
   <nav className="navbar is-primary">
     <div className="container">
       <div className="navbar-brand">
-        <a href="/" className="navbar-item">
+        <Link to="/" className="navbar-item">
           <strong>Quick Projects!</strong>
-        </a>
+        </Link>
         <a
           id="burger"
           role="button"

@@ -13,11 +13,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <BrowserRouter>
+        <BrowserRouter basename="/Quick-Projects">
           <ReactAux>
             <Navbar />
             <Switch>
-              <Route path="/" exact component={Projects} />
+              <Route
+                path={`${process.env.PUBLIC_URL}/`}
+                exact
+                component={Projects}
+              />
               <Route path="/snake" exact component={Snake} />
               <Route path="/gravity" exact component={Gravity} />
               <Route path="/bouncingballs" exact component={BouncingBalls} />
