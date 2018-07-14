@@ -5,24 +5,36 @@ import './hovertext.css';
 export default class HoverText extends Component {
   componentDidMount() {
     const hero = document.querySelector('html');
-    const text = hero.querySelector('h1');
-
     hero.addEventListener('mousemove', this.shadow);
   }
 
   componentWillUnmount() {
     const hero = document.querySelector('html');
-    // window.removeEventListener('mousemove', this.shadow);
+    hero.removeEventListener('mousemove', this.shadow);
   }
-  // shadow(e) {
-  //   console.log(e);
-  // }
+  shadow(e) {
+    const hero = document.querySelector('html');
+    const { offsetWidth: width, offsetHeight: height } = hero;
+    const distance = 25;
+    let { offsetX: x, offsetY: y } = e;
+    if (this !== e.target) {
+      x += e.target.offsetLeft;
+      y += e.target.offsetTop;
+    }
+    const xDistance = Math.round((x / width) * distance - distance / 2);
+    const yDistance = Math.round((y / height) * distance - distance / 2);
+
+    const text = document.getElementById('text');
+    text.style.textShadow = `${xDistance}px ${yDistance}px 10px  #232323`;
+    console.log(xDistance);
+    console.log(yDistance);
+  }
 
   render() {
     return (
       <div className="hero">
         <div className="hero-body">
-          <h1>Quick Projects</h1>
+          <h1 id="text">Quick Projects</h1>
         </div>
       </div>
     );
