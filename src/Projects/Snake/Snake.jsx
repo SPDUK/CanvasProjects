@@ -165,6 +165,9 @@ class Snake extends Component {
           this.setState({
             play: true
           });
+          const canv = document.getElementById('gc');
+          canv.setAttribute('tabindex', '0');
+          canv.focus();
         }}
         className="container snake"
         id="snake"
