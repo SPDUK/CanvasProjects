@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class Gravity extends Component {
   componentDidMount() {
     this.createCanvas();
+    window.addEventListener('resize', this.resizeCanvas);
   }
 
   // eslint-disable-next-line
@@ -30,16 +31,9 @@ class Gravity extends Component {
     const colors = ['#9f2bff', '#ec9bff', '#2b1eb5', '#604096'];
 
     // Event Listeners
-    window.addEventListener('mousemove', event => {
+    canvas.addEventListener('mousemove', event => {
       mouse.x = event.clientX;
       mouse.y = event.clientY;
-    });
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      init();
     });
 
     // Objects
@@ -84,7 +78,7 @@ class Gravity extends Component {
     let particles;
     function init() {
       particles = [];
-
+      console.log('rezis');
       for (let i = 0; i < 50; i += 1) {
         const radius = Math.random() * 2 + 1;
         particles.push(
@@ -97,11 +91,16 @@ class Gravity extends Component {
         );
       }
     }
+    canvas.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
+    });
 
     // Animation Loop
     function animate() {
       requestAnimationFrame(animate);
-      c.fillStyle = 'rgba(12, 12, 12, 0.03)';
+      c.fillStyle = 'rgba(255, 255, 255, 0.03)';
       c.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach(particle => {
@@ -111,6 +110,16 @@ class Gravity extends Component {
 
     init();
     animate();
+  }
+  // eslint-disable-next-line
+  resizeCanvas() {
+    const canvas = document.querySelector('canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    console.log('resized');
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeCanvas);
   }
   render() {
     return <canvas style={{ cursor: 'none' }} />;

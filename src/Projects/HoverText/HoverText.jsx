@@ -7,7 +7,7 @@ export default class HoverText extends Component {
     const hero = document.querySelector('html');
     const text = hero.querySelector('h1');
 
-    window.addEventListener('mousemove', this.shadow);
+    hero.addEventListener('mousemove', this.shadow);
   }
 
   componentWillUnmount() {
