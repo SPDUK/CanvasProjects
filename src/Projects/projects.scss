@@ -7,9 +7,9 @@ html {
   width: 100vw;
   color: rgb(27, 27, 27);
   &-grid {
-    height: 900px;
     &-item {
-      background-color: rgb(245, 245, 157);
+      box-sizing: border-box;
+      border: 1px solid black;
     }
   }
 }
