@@ -26,8 +26,6 @@ export default class HoverText extends Component {
 
     const text = document.getElementById('text');
     text.style.textShadow = `${xDistance}px ${yDistance}px 10px  #232323`;
-    console.log(xDistance);
-    console.log(yDistance);
   }
 
   render() {
@@ -35,6 +33,7 @@ export default class HoverText extends Component {
       <div className="hero">
         <div className="hero-body">
           <h1 id="text">Quick Projects</h1>
+          <span className="hero-underline" />
         </div>
       </div>
     );
