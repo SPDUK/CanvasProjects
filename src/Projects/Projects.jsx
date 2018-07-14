@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import './projects.css';
 import HoverText from './HoverText/HoverText';
+import './projects.css';
 
 export default class Projects extends Component {
   render() {
