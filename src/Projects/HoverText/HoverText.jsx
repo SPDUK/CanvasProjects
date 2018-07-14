@@ -6,7 +6,6 @@ export default class HoverText extends Component {
   componentDidMount() {
     const hero = document.querySelector('html');
     hero.addEventListener('mousemove', this.shadow);
-    const text = document.getElementById('text');
   }
 
   componentWillUnmount() {
@@ -33,22 +32,7 @@ export default class HoverText extends Component {
     return (
       <div className="hero">
         <div className="hero-body">
-          <h1 id="text">
-            <span>Q</span>
-            <span>u</span>
-            <span>i</span>
-            <span>c</span>
-            <span>k</span>
-
-            <span>P</span>
-            <span>r</span>
-            <span>o</span>
-            <span>j</span>
-            <span>e</span>
-            <span>c</span>
-            <span>t</span>
-            <span>s</span>
-          </h1>
+          <h1 id="text">Quick Projects</h1>
           <div className="hero-underline" />
         </div>
       </div>
