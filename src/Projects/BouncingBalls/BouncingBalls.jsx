@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class BouncingBalls extends Component {
   componentDidMount() {
     this.createCanvas();
+    window.addEventListener('resize', this.resizeCanvas);
   }
   // eslint-disable-next-line
   createCanvas() {
@@ -18,7 +19,7 @@ class BouncingBalls extends Component {
     const maxRadius = 80;
     const colors = ['#E74C3C', '#2C3E50', '#FF9130', '#3498DB', '#2980B9'];
 
-    window.addEventListener('mousemove', e => {
+    canvas.addEventListener('mousemove', e => {
       mouse.x = e.x;
       mouse.y = e.y;
     });
@@ -71,7 +72,7 @@ class BouncingBalls extends Component {
       };
     }
 
-    let circles = [];
+    const circles = [];
     for (let i = 0; i < 300; i += 1) {
       const radius = Math.random() * 10 + 3;
       const x = Math.random() * (window.innerWidth - radius * 2) + radius;
@@ -82,27 +83,6 @@ class BouncingBalls extends Component {
       circles.push(new Circle(x, y, dx, dy, radius));
     }
 
-    // for resizing, reloads everything when resized
-    const init = () => {
-      // empties the circles array to stop it from endlessly pushing more circles on resize
-      circles = [];
-      for (let i = 0; i < 100; i += 1) {
-        const radius = Math.random() * 10 + 3;
-        const x = Math.random() * (window.innerWidth - radius * 2) + radius;
-        const y = Math.random() * (window.innerHeight - radius * 2) + radius;
-        // velocity (how fast it moves)
-        const dx = (Math.random() - 0.5) * 5;
-        const dy = (Math.random() - 0.5) * 5;
-        circles.push(new Circle(x, y, dx, dy, radius));
-      }
-    };
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      init();
-    });
-
     const animate = () => {
       requestAnimationFrame(animate);
       // // circle.draw();
@@ -112,6 +92,16 @@ class BouncingBalls extends Component {
       }
     };
     animate();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeCanvas);
+  }
+  // eslint-disable-next-line
+  resizeCanvas() {
+    const canvas = document.querySelector('canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    console.log('resized');
   }
   render() {
     return <canvas className="bouncingballs" />;

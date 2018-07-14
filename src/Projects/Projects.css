@@ -1,2 +1,11 @@
 html {
   background-color: #fafafa; }
+
+.projects {
+  height: 100vh;
+  width: 100vw; }
+  .projects-grid {
+    height: 900px; }
+    .projects-grid-item {
+      border: 5px solid grey;
+      background-color: #f5f59d; }

@@ -1,0 +1,8 @@
+.hero {
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .hero h1 {
+    text-shadow: 10px 10px 0 black;
+    font-size: 100px; }
