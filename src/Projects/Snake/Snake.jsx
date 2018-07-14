@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 
-// import ReactAux from '../../Hoc/ReactAux/ReactAux';
 import './snake.css';
 
 // directions
-
 class Snake extends Component {
   constructor() {
     super();
@@ -83,12 +80,13 @@ class Snake extends Component {
           break;
       }
     };
+    // focus the canvas so the controls work and we can throw away the listener if page changes
     canv.setAttribute('tabindex', '0');
     canv.focus();
     canv.addEventListener('keydown', keyPush);
-    // throttled to 15ms so you can't accidentally die by turning into yourself in the same game tick
 
     const game = () => {
+      // if the game is paused, do nothing
       if (!this.state.play) {
         return;
       }
@@ -109,8 +107,8 @@ class Snake extends Component {
       }
       ctx.fillStyle = '#212121';
       ctx.fillRect(0, 0, canv.width, canv.height);
-
       ctx.fillStyle = '#9FFF98';
+
       for (let i = 0; i < trail.length; i += 1) {
         ctx.fillRect(trail[i].x * gs, trail[i].y * gs, gs - 2, gs - 2);
         if (trail[i].x === px && trail[i].y === py) {
