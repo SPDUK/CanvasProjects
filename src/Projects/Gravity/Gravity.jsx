@@ -78,7 +78,6 @@ class Gravity extends Component {
     let particles;
     function init() {
       particles = [];
-      console.log('rezis');
       for (let i = 0; i < 50; i += 1) {
         const radius = Math.random() * 2 + 1;
         particles.push(

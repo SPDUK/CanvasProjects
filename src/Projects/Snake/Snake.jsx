@@ -21,11 +21,9 @@ class Snake extends Component {
     // set up the event listeners for controls
     // update the state with the new direction
     const canv = document.getElementById('gc');
-    console.log(window.innerWidth);
     if (window.innerWidth < 400) {
       canv.width = 300;
       canv.height = 300;
-      console.log('????');
     } else if (window.innerWidth < 600) {
       canv.width = 400;
       canv.height = 400;
