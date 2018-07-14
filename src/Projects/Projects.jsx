@@ -8,10 +8,11 @@ export default class Projects extends Component {
     return (
       <div className="container projects">
         <HoverText />
-        <div className="columns projects-grid">
-          <div className="column projects-grid-item" />
-          <div className="column projects-grid-item" />
-          <div className="column projects-grid-item" />
+        <div className="section">
+          <div className="columns container projects-grid">
+            <div className="column projects-grid-item">hi</div>
+            <div className="column projects-grid-item">hi</div>
+          </div>
         </div>
       </div>
     );

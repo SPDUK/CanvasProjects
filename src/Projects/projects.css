@@ -8,5 +8,4 @@ html {
   .projects-grid {
     height: 900px; }
     .projects-grid-item {
-      border: 5px solid grey;
       background-color: #f5f59d; }
