@@ -4,14 +4,16 @@
   justify-content: center;
   align-items: center;
   h1 {
-    animation: fadeHero 1s;
-    text-shadow: 3px 3px 10px #222222;
+    animation: fadeHero 0.6s;
+    font-family: 'Great Vibes', cursive;
+    color: #2c2a33;
+    text-shadow: 3px 3px 20px #222222;
     opacity: 1;
-    font-size: 2.5em;
-    font-weight: 600;
-    color: #222222;
+    font-size: 3em;
+    font-weight: 400;
     animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.675);
     @media (min-width: 500px) {
+      // responsive fontsizes
       font-size: 3.5em;
     }
     @media (min-width: 770px) {
@@ -19,37 +21,45 @@
     }
     @media (min-width: 994px) {
       font-size: 5.5em;
+    } // animation for h1
+    @keyframes fadeHero {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
   }
   &-underline {
-    height: 3px;
-    opacity: 0;
-    animation: fadeUnderline 1s 80ms forwards;
+    animation: fadeUnderline 0.6s 80ms forwards;
     animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.2);
     width: 100%;
-    margin-top: -1em;
+    margin-top: -1.4em;
     background: #222222;
-  }
-}
-
-@keyframes fadeHero {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeUnderline {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
+    @media (min-width: 500px) {
+      // responsive positioning for underline
+      margin-top: -1.6em;
+    }
+    @media (min-width: 770px) {
+      margin-top: -2.1em;
+    }
+    @media (min-width: 994px) {
+      margin-top: -2.6em;
+    } //animation for underline
+    @keyframes fadeUnderline {
+      0% {
+        opacity: 0;
+        height: 6px;
+        transform: scale(0);
+      }
+      100% {
+        opacity: 1;
+        height: 2px;
+        transform: scale(1);
+      }
+    }
   }
 }
