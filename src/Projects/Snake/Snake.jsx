@@ -48,7 +48,6 @@ class Snake extends Component {
     let tail = 5;
     let lastPress;
     const keyPush = evt => {
-      console.log(evt);
       if (lastPress === 37 && evt.keyCode === 39) {
         return;
       }
