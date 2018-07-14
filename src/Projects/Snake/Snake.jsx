@@ -109,8 +109,11 @@ class Snake extends Component {
       ctx.fillRect(0, 0, canv.width, canv.height);
       ctx.fillStyle = '#9FFF98';
 
+      // snake trail
       for (let i = 0; i < trail.length; i += 1) {
         ctx.fillRect(trail[i].x * gs, trail[i].y * gs, gs - 2, gs - 2);
+
+        // if the player touches the tail, reset the score to 0 and check if it's a new highscore
         if (trail[i].x === px && trail[i].y === py) {
           if (this.state.score > 0) {
             if (this.state.score > this.state.highScore) {
@@ -131,6 +134,7 @@ class Snake extends Component {
         trail.shift();
       }
 
+      // if the snake goes over the apple (red square) add 1 (or 5 if on hard) and generate a new one
       if (ax === px && ay === py) {
         if (this.state.hard) {
           tail += 5;
