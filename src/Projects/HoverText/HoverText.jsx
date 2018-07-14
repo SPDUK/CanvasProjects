@@ -15,7 +15,7 @@ export default class HoverText extends Component {
   shadow(e) {
     const hero = document.querySelector('html');
     const { offsetWidth: width, offsetHeight: height } = hero;
-    const distance = 25;
+    const distance = 20;
     let { offsetX: x, offsetY: y } = e;
     if (this !== e.target) {
       x += e.target.offsetLeft;
@@ -25,7 +25,7 @@ export default class HoverText extends Component {
     const yDistance = Math.round((y / height) * distance - distance / 2);
 
     const text = document.getElementById('text');
-    text.style.textShadow = `${xDistance}px ${yDistance}px 10px  #232323`;
+    text.style.textShadow = `${xDistance}px ${yDistance}px 20px #222222af`;
   }
 
   render() {
@@ -33,7 +33,7 @@ export default class HoverText extends Component {
       <div className="hero">
         <div className="hero-body">
           <h1 id="text">Quick Projects</h1>
-          <span className="hero-underline" />
+          <div className="hero-underline" />
         </div>
       </div>
     );

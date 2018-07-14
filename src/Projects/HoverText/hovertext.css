@@ -5,9 +5,12 @@
   align-items: center; }
   .hero h1 {
     animation: fadeHero 1s;
-    text-shadow: 3px 3px 10px #1f1e20;
+    text-shadow: 3px 3px 10px #222222;
     opacity: 1;
-    font-size: 2.5em; }
+    font-size: 2.5em;
+    font-weight: 600;
+    color: #222222;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.675); }
     @media (min-width: 500px) {
       .hero h1 {
         font-size: 3.5em; } }
@@ -18,13 +21,23 @@
       .hero h1 {
         font-size: 5.5em; } }
   .hero-underline {
-    width: 900px;
-    height: 20px;
-    background: black;
-    color: red;
-    z-index: 900; }
+    height: 3px;
+    opacity: 0;
+    animation: fadeUnderline 1s 80ms forwards;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.2);
+    width: 100%;
+    margin-top: -1em;
+    background: #222222; }
 
 @keyframes fadeHero {
+  0% {
+    opacity: 0;
+    transform: scale(0); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+@keyframes fadeUnderline {
   0% {
     opacity: 0;
     transform: scale(0); }
