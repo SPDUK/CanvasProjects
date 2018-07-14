@@ -116,7 +116,6 @@ class Gravity extends Component {
     const canvas = document.querySelector('canvas');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    console.log('resized');
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this.resizeCanvas);
