@@ -1,0 +1,16 @@
+html {
+  background-color: #fafafa;
+}
+
+.projects {
+  height: 100vh;
+  width: 100vw;
+  color: rgb(27, 27, 27);
+  &-grid {
+    height: 900px;
+    &-item {
+      border: 5px solid grey;
+      background-color: rgb(245, 245, 157);
+    }
+  }
+}
