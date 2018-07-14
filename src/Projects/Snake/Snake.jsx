@@ -20,6 +20,10 @@ class Snake extends Component {
   componentDidMount() {
     // set up the event listeners for controls
     // update the state with the new direction
+    this.startGame();
+  }
+
+  startGame() {
     const canv = document.getElementById('gc');
     if (window.innerWidth < 400) {
       canv.width = 300;
@@ -44,6 +48,7 @@ class Snake extends Component {
     let tail = 5;
     let lastPress;
     const keyPush = evt => {
+      console.log(evt);
       if (lastPress === 37 && evt.keyCode === 39) {
         return;
       }
@@ -79,8 +84,10 @@ class Snake extends Component {
           break;
       }
     };
+    canv.setAttribute('tabindex', '0');
+    canv.focus();
+    canv.addEventListener('keydown', keyPush);
     // throttled to 15ms so you can't accidentally die by turning into yourself in the same game tick
-    document.addEventListener('keydown', _.throttle(keyPush, 15), false);
 
     const game = () => {
       if (!this.state.play) {
@@ -144,10 +151,8 @@ class Snake extends Component {
       ctx.fillStyle = '#FF6C6C';
       ctx.fillRect(ax * gs, ay * gs, gs - 2, gs - 2);
     };
-
     setInterval(game, 1000 / 15);
   }
-
   render() {
     if (!this.state.play) {
       document.body.style.cursor = 'pointer';
