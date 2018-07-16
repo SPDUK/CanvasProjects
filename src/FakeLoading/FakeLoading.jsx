@@ -8,7 +8,7 @@ export default class FakeLoading extends Component {
     loadingBar
       .add({
         targets: '.fakeloading-bar-inner',
-        width: 500,
+        width: 320,
         loop: false,
         easing: 'easeInQuart',
         duration: 1000,
@@ -19,13 +19,13 @@ export default class FakeLoading extends Component {
         targets: '.fakeloading-bar-inner',
         borderRadius: '100%',
         width: 50,
-        translateX: 500
+        translateX: 160
       })
       .add({
         targets: '.fakeloading-bar-inner',
         width: 50,
         loop: false,
-        translateX: 250,
+        translateX: 160,
         easing: 'easeInQuart',
         backgroundColor: 'rgb(167, 90, 255)'
       })
@@ -33,7 +33,7 @@ export default class FakeLoading extends Component {
       .add({
         targets: '.fakeloading-bar-inner',
         easing: 'easeInQuart',
-        translateX: 250,
+        translateX: 160,
         duration: 500,
         scale: 70,
         backgroundColor: '#57a5ff'
@@ -42,15 +42,29 @@ export default class FakeLoading extends Component {
     const loadingText = anime.timeline();
     loadingText
       .add({
-        duration: 1300,
+        duration: 2200,
         targets: '#num',
         easing: 'easeInQuart',
-        innerHTML: 100,
+        innerHTML: '100%',
         round: 1
       })
       .add({
+        duration: 50,
         targets: '#num',
-        opacity: 0
+        opacity: 0.3
+      })
+      .add({
+        duration: 250,
+        fontWeight: 700,
+        targets: '#num',
+        opacity: 1,
+        scale: 2.5
+      })
+      .add({
+        duration: 800,
+        targets: '#num',
+        opacity: 0,
+        scale: 1
       });
   };
 
