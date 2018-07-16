@@ -11,9 +11,9 @@ export default class FakeLoading extends Component {
         width: 500,
         loop: false,
         easing: 'easeInQuart',
-        duration: 3000,
+        duration: 1500,
         borderRadius: 50,
-        backgroundColor: '[rgb(255, 9, 9), rgb(134, 142, 255]'
+        backgroundColor: 'rgb(255, 179, 107)'
       })
       .add({
         targets: '.fakeloading-bar-inner',
@@ -27,13 +27,15 @@ export default class FakeLoading extends Component {
         loop: false,
         translateX: 250,
         easing: 'easeInQuart',
-        duration: 1000
+        backgroundColor: 'rgb(167, 90, 255)'
       })
+
       .add({
         targets: '.fakeloading-bar-inner',
-        borderRadius: '100%',
+        easing: 'easeInQuart',
         translateX: 250,
-        scale: 5
+        scale: 70,
+        backgroundColor: '#57a5ff'
       });
   };
 
