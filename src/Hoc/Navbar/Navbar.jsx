@@ -19,7 +19,7 @@ const Navbar = () => (
   <nav className="navbar is-primary">
     <div className="container">
       <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
+        <Link to="/projects" className="navbar-item">
           <strong>Quick Projects!</strong>
         </Link>
         <a

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 // hoc
 import ReactAux from './Hoc/ReactAux/ReactAux';
-import Navbar from './Hoc/Navbar/Navbar';
+// landing
+import FakeLoading from './FakeLoading/FakeLoading';
 // projects
 import Projects from './Projects/Projects';
 import Snake from './Projects/Snake/Snake';
@@ -15,9 +16,9 @@ class App extends Component {
       <div className="App">
         <HashRouter>
           <ReactAux>
-            <Navbar />
             <Switch>
-              <Route path="/" exact component={Projects} />
+              <Route path="/" exact component={FakeLoading} />
+              <Route path="/projects" exact component={Projects} />
               <Route path="/snake" exact component={Snake} />
               <Route path="/gravity" exact component={Gravity} />
               <Route path="/bouncingballs" exact component={BouncingBalls} />

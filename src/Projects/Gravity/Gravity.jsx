@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import Navbar from '../../Hoc/Navbar/Navbar';
+import ReactAux from '../../Hoc/ReactAux/ReactAux';
+
 class Gravity extends Component {
   componentDidMount() {
     this.createCanvas();
@@ -120,7 +123,12 @@ class Gravity extends Component {
     window.removeEventListener('resize', this.resizeCanvas);
   }
   render() {
-    return <canvas style={{ cursor: 'none' }} />;
+    return (
+      <ReactAux>
+        <Navbar />
+        <canvas style={{ cursor: 'none' }} />
+      </ReactAux>
+    );
   }
 }
 

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import Navbar from '../../Hoc/Navbar/Navbar';
+import ReactAux from '../../Hoc/ReactAux/ReactAux';
+
 import './snake.css';
 
 // directions
@@ -161,66 +164,69 @@ class Snake extends Component {
       document.body.style.cursor = 'default';
     }
     return (
-      // eslint-disable-next-line
-      <div 
-        onClick={() => {
-          this.setState({
-            play: true
-          });
-          const canv = document.getElementById('gc');
-          canv.setAttribute('tabindex', '0');
-          canv.focus();
-        }}
-        className="container snake"
-        id="snake"
-      >
-        <h3 className="snake-score is-size-3">Score: {this.state.score}</h3>
-        <h5 className="snake-score is-size-5">
-          HighScore: {this.state.highScore}
-        </h5>
-        {!this.state.play ? (
-          <article className="message is-danger snake-message">
-            <div className="message-header">
-              <p className="has-text-weight-bold">You Lost!</p>
-              <button className="delete" aria-label="delete" />
-            </div>
-            <div className="message-body">
-              <p className="has-text-weight-semibold">
-                Current High Score: {this.state.highScore}
-              </p>
-              <p>Click anywhere to play again.</p>
-            </div>
-          </article>
-        ) : null}
-        <div className="snake-canvas">
-          <canvas id="gc" className="snake-canvas" />
-        </div>
-        <div className="snake-controls">
-          {/* eslint-disable-next-line */}
-          <div
-            onClick={() => {
-              this.setState({
-                hard: !this.state.hard
-              });
-            }}
-            className="snake-controls-difficulty"
-          >
-            {!this.state.hard ? (
-              <span className="button is-danger">Try Hard Mode!</span>
-            ) : (
-              <span className="button is-success">Back to easy mode</span>
-            )}
+      <ReactAux>
+        <Navbar />
+        {/* // eslint-disable-next-line */}
+        <div
+          onClick={() => {
+            this.setState({
+              play: true
+            });
+            const canv = document.getElementById('gc');
+            canv.setAttribute('tabindex', '0');
+            canv.focus();
+          }}
+          className="container snake"
+          id="snake"
+        >
+          <h3 className="snake-score is-size-3">Score: {this.state.score}</h3>
+          <h5 className="snake-score is-size-5">
+            HighScore: {this.state.highScore}
+          </h5>
+          {!this.state.play ? (
+            <article className="message is-danger snake-message">
+              <div className="message-header">
+                <p className="has-text-weight-bold">You Lost!</p>
+                <button className="delete" aria-label="delete" />
+              </div>
+              <div className="message-body">
+                <p className="has-text-weight-semibold">
+                  Current High Score: {this.state.highScore}
+                </p>
+                <p>Click anywhere to play again.</p>
+              </div>
+            </article>
+          ) : null}
+          <div className="snake-canvas">
+            <canvas id="gc" className="snake-canvas" />
           </div>
+          <div className="snake-controls">
+            {/* eslint-disable-next-line */}
+            <div
+              onClick={() => {
+                this.setState({
+                  hard: !this.state.hard
+                });
+              }}
+              className="snake-controls-difficulty"
+            >
+              {!this.state.hard ? (
+                <span className="button is-danger">Try Hard Mode!</span>
+              ) : (
+                <span className="button is-success">Back to easy mode</span>
+              )}
+            </div>
 
-          <p>
-            Use the <span>Arrow Keys</span> to control the snake. 🐍
-          </p>
-          <p>The game will start when you press any arrow key.</p>
-          <p>
-            You will<span> not</span> lose if you touch the walls
-          </p>
+            <p>
+              Use the <span>Arrow Keys</span> to control the snake. 🐍
+            </p>
+            <p>The game will start when you press any arrow key.</p>
+            <p>
+              You will<span> not</span> lose if you touch the walls
+            </p>
+          </div>
         </div>
-      </div>
+      </ReactAux>
     );
   }
 }

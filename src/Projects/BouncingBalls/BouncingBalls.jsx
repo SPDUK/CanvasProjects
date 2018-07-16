@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Navbar from '../../Hoc/Navbar/Navbar';
+import ReactAux from '../../Hoc/ReactAux/ReactAux';
 
 class BouncingBalls extends Component {
   componentDidMount() {
@@ -103,7 +105,12 @@ class BouncingBalls extends Component {
     canvas.height = window.innerHeight;
   }
   render() {
-    return <canvas className="bouncingballs" />;
+    return (
+      <ReactAux>
+        <Navbar />
+        <canvas className="bouncingballs" />
+      </ReactAux>
+    );
   }
 }
 
