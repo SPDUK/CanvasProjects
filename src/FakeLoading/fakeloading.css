@@ -2,15 +2,23 @@
   font-family: 'Roboto';
   height: 100vh;
   width: 100vw;
-  background-color: #fafafa;
-  display: flex;
-  justify-content: center;
-  margin-top: 25%; }
+  background-color: #fafafa; }
   .fakeloading-bar {
     display: block;
     width: 500px;
-    height: 50px; }
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
     .fakeloading-bar-inner {
       height: 50px;
-      width: 0px;
-      background: #ff6b6b; }
+      width: 10px;
+      background: yellow;
+      background: #ff6b6b;
+      text-align: center; }
+      .fakeloading-bar-inner span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
