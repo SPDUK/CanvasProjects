@@ -12,18 +12,20 @@ export default class HoverText extends Component {
     const hero = document.querySelector('html');
     hero.removeEventListener('mousemove', this.shadow);
   }
+
   shadow(e) {
     const hero = document.querySelector('html');
     const { offsetWidth: width, offsetHeight: height } = hero;
     const distance = 30;
     let { offsetX: x, offsetY: y } = e;
+
     if (this !== e.target) {
       x += e.target.offsetLeft;
       y += e.target.offsetTop;
     }
+
     const xDistance = Math.round((x / width) * distance - distance / 2);
     const yDistance = Math.round((y / height) * distance - distance / 2);
-
     const text = document.getElementById('text');
     text.style.textShadow = `${xDistance}px ${yDistance}px 20px #222222af`;
   }
