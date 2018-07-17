@@ -25,7 +25,7 @@ class FakeLoading extends Component {
         easing: 'linear',
         duration: 1500,
         borderRadius: 10,
-        backgroundColor: 'rgb(31, 31, 31)'
+        backgroundColor: 'rgba(31, 31, 31, 0.7)'
       })
       .add({
         targets: '.fakeloading-bar-inner',
@@ -34,31 +34,32 @@ class FakeLoading extends Component {
         translateX: 160,
         duration: 600,
         backgroundColor: 'rgba(0,0,0,0)',
-        borderLeft: '0px solid rgb(56, 165, 255)'
+        borderTop: '1px solid rgba(250, 250, 255, 0.4)'
       })
       .add({
         targets: '.fakeloading-bar-inner',
         width: 50,
         loop: false,
         translateX: 160,
-        borderLeft: '5px solid rgb(56, 165, 255)',
+        borderTop: '5px solid rgb(250, 255, 255)',
         rotate: 2880,
-        duration: 1500,
+        duration: 2000,
         easing: 'easeInQuad',
-        opacity: 0.5
+        opacity: 1
       })
       .add({
         targets: '.fakeloading-bar-inner',
-        borderLeft: '0px solid rgb(56, 165, 255)',
+        borderTop: '50px solid rgb(250, 255, 255)',
         opacity: 0,
-        duration: 60
+        duration: 3
       })
       .add({
         targets: '.fakeloading-bar-inner',
+        borderTop: '50px solid rgb(250, 255, 255)',
         backgroundColor: '#e9e9e9',
-        easing: 'easeInSine',
+        easing: 'easeInCubic',
         translateX: 160,
-        duration: 800,
+        duration: 300,
         scale: 70,
         opacity: 1,
         complete(anim) {
@@ -71,7 +72,7 @@ class FakeLoading extends Component {
       .add({
         duration: 1500,
         targets: '#num',
-        easing: 'easeInQuart',
+        easing: 'easeInQuad',
         innerHTML: '100%',
         round: 1,
         color: 'rgb(230,230,230)'
@@ -83,15 +84,21 @@ class FakeLoading extends Component {
         color: 'rgb(0,0,0)'
       })
       .add({
-        duration: 250,
+        duration: 500,
         fontWeight: 700,
         targets: '#num',
         opacity: 1,
-        color: 'rgb(56, 165, 255)',
+        color: 'rgb(250, 250, 255)',
         scale: 3
       })
       .add({
-        duration: 800,
+        duration: 20,
+        targets: '#num',
+        opacity: 0,
+        scale: 1
+      })
+      .add({
+        duration: 300,
         targets: '#num',
         opacity: 0,
         scale: 1

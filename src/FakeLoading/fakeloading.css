@@ -24,7 +24,7 @@
       .fakeloading-bar-inner span {
         position: absolute;
         top: 25%;
-        left: 25%;
+        left: 75%;
         color: white;
         transform: translate(-50%, -50%); }
 
