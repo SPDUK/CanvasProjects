@@ -20,12 +20,12 @@ export default class FakeLoading extends Component {
         borderRadius: '100%',
         width: 50,
         translateX: 160,
-        backgroundColor: 'rgb(53,53,53)',
-        borderLeft: '5px solid rgb(56, 165, 255)'
+        duration: 600,
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderLeft: '0px solid rgb(56, 165, 255)'
       })
       .add({
         targets: '.fakeloading-bar-inner',
-        backgroundColor: '#fafafa',
         width: 50,
         loop: false,
         translateX: 160,
@@ -37,13 +37,18 @@ export default class FakeLoading extends Component {
       })
       .add({
         targets: '.fakeloading-bar-inner',
-        easing: 'easeInQuart',
+        borderLeft: '0px solid rgb(56, 165, 255)',
+        opacity: 0,
+        duration: 60
+      })
+      .add({
+        targets: '.fakeloading-bar-inner',
+        backgroundColor: '#e9e9e9',
+        easing: 'easeInSine',
         translateX: 160,
-        duration: 250,
+        duration: 1200,
         scale: 70,
-        backgroundColor: 'rgb(230, 230, 230)',
-        borderLeft: '0px solid #fafafa',
-        opacity: 0.1
+        opacity: 1
       });
 
     const loadingText = anime.timeline();
@@ -60,15 +65,15 @@ export default class FakeLoading extends Component {
         duration: 50,
         targets: '#num',
         opacity: 0.3,
-        color: 'rgb(230,230,230)'
+        color: 'rgb(0,0,0)'
       })
       .add({
         duration: 250,
         fontWeight: 700,
         targets: '#num',
         opacity: 1,
-        color: 'rgb(230, 230, 230)',
-        scale: 2.5
+        color: 'rgb(56, 165, 255)',
+        scale: 3
       })
       .add({
         duration: 800,

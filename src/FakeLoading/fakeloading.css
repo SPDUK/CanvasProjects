@@ -1,7 +1,12 @@
 .fakeloading {
   font-family: 'Roboto';
   height: 100vh;
-  width: 100vw; }
+  width: 100vw;
+  background: #232526;
+  background: linear-gradient(to bottom, #414345, #232526);
+  opacity: 0;
+  transition: ease-in;
+  animation: background 1.5s forwards; }
   .fakeloading-bar {
     display: block;
     width: 320px;
@@ -20,4 +25,9 @@
         position: absolute;
         top: 25%;
         left: 25%;
+        color: white;
         transform: translate(-50%, -50%); }
+
+@keyframes background {
+  100% {
+    opacity: 1; } }
