@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 import anime from 'animejs';
 import './fakeloading.css';
+import { Link, withRouter } from 'react-router-dom';
 
-export default class FakeLoading extends Component {
+class FakeLoading extends Component {
+  constructor() {
+    super();
+    this.state = {
+      finished: false
+    };
+  }
   componentDidMount = () => {
+    // when loading is finished it will call this function and push to the projects homepage
+    const loadingFinished = () => {
+      this.props.history.push('/projects');
+    };
+
     const loadingBar = anime.timeline();
     loadingBar
       .add({
@@ -46,9 +58,12 @@ export default class FakeLoading extends Component {
         backgroundColor: '#e9e9e9',
         easing: 'easeInSine',
         translateX: 160,
-        duration: 1200,
+        duration: 800,
         scale: 70,
-        opacity: 1
+        opacity: 1,
+        complete(anim) {
+          loadingFinished();
+        }
       });
 
     const loadingText = anime.timeline();
@@ -95,3 +110,5 @@ export default class FakeLoading extends Component {
     );
   }
 }
+
+export default withRouter(FakeLoading);
