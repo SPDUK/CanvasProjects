@@ -1,8 +1,7 @@
 .fakeloading {
   font-family: 'Roboto';
   height: 100vh;
-  width: 100vw;
-  background-color: #fafafa; }
+  width: 100vw; }
   .fakeloading-bar {
     display: block;
     width: 320px;
@@ -14,12 +13,11 @@
     .fakeloading-bar-inner {
       height: 50px;
       width: 10px;
-      background: yellow;
-      background: #ff6b6b;
-      text-align: center; }
+      background: #1f1f1f;
+      text-align: center;
+      color: #fafafa; }
       .fakeloading-bar-inner span {
         position: absolute;
         top: 25%;
         left: 25%;
-        transform: translate(-50%, -50%);
-        color: #2c2c2c; }
+        transform: translate(-50%, -50%); }

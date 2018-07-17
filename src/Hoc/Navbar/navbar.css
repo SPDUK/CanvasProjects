@@ -1,5 +1,6 @@
 .navbar {
-  text-align: center; }
+  text-align: center;
+  background-color: black; }
 
 @media (max-width: 1088px) {
   .navbar-menu.is-active {

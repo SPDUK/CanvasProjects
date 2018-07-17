@@ -16,7 +16,7 @@ const toggleBurger = () => {
 };
 
 const Navbar = () => (
-  <nav className="navbar is-primary">
+  <nav className="navbar is-transparent">
     <div className="container">
       <div className="navbar-brand">
         <Link to="/projects" className="navbar-item">
