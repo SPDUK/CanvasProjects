@@ -3,9 +3,10 @@
   flex-wrap: nowrap;
   width: 100%; }
   .sort-item {
+    transition: 1s ease-out;
     flex-basis: 10%;
     height: 50px;
-    background: #d4d4d4;
+    background: #b4b4b4;
     border: 2px solid black;
     color: black;
     text-align: center;

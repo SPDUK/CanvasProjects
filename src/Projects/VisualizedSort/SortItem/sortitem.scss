@@ -3,9 +3,10 @@
   flex-wrap: nowrap;
   width: 100%;
   &-item {
+    transition: 1s ease-out;
     flex-basis: 10%;
     height: 50px;
-    background: rgb(212, 212, 212);
+    background: rgb(180, 180, 180);
     border: 2px solid black;
     color: black;
     text-align: center;
