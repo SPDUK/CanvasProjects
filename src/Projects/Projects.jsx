@@ -8,12 +8,28 @@ import ProjectCard from './ProjectCard/ProjectCard';
 import './projects.css';
 
 export default class Projects extends Component {
+  componentDidMount() {
+    console.log(
+      `%c ________________________________________
+<  Hire Me : spdevuk@gmail.com           >
+ ----------------------------------------
+        \\   ^__^
+         \\  (oo)\\_______
+            (__)\\       )\\/\\
+                ||----w |
+                ||     ||`,
+      'font-family:monospace'
+    );
+  }
   render() {
     return (
       <ReactAux>
         <Navbar />
         <div className="container projects">
           <HoverText />
+          <p className="super-sekret-msg">
+            Open your console for a secret message
+          </p>
           <section className="section">
             <div className="columns  is-multiline projects-grid">
               <div className="column projects-grid-item  is-one-third-tablet">
