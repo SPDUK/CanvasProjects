@@ -3,110 +3,16 @@ import React, { Component } from 'react';
 import './sortitem.css';
 
 // TODO: eslint seems to think this is a good idea even though it's not, reformat it later
-const arr = [
-  79,
-  48,
-  51,
-  46,
-  35,
-  29,
-  69,
-  57,
-  68,
-  56,
-  52,
-  3,
-  22,
-  45,
-  77,
-  43,
-  59,
-  61,
-  19,
-  85,
-  63,
-  73,
-  37,
-  23,
-  88,
-  65,
-  80,
-  6,
-  1,
-  91,
-  24,
-  39,
-  66,
-  21,
-  82,
-  95,
-  90,
-  16,
-  32,
-  81,
-  34,
-  99,
-  72,
-  49,
-  96,
-  64,
-  41,
-  55,
-  93,
-  50,
-  38,
-  83,
-  89,
-  92,
-  10,
-  15,
-  42,
-  75,
-  76,
-  8,
-  53,
-  47,
-  2,
-  13,
-  36,
-  30,
-  4,
-  18,
-  11,
-  98,
-  44,
-  27,
-  86,
-  9,
-  26,
-  67,
-  58,
-  97,
-  31,
-  54,
-  70,
-  78,
-  12,
-  60,
-  17,
-  40,
-  33,
-  74,
-  71,
-  7,
-  25,
-  14,
-  94,
-  20,
-  28
-];
-
-arr.sort();
+const arr = [8, 6, 10, 4, 5, 2, 7, 1, 9, 3];
 
 export default class SortItem extends Component {
+  test() {
+    const sItems = document.getElementsByClassName('sort-item');
+    console.log(sItems);
+  }
   render() {
     return (
-      <ul className="sort container">
+      <ul onClick={this.test} className="sort container">
         {arr.map(i => <li className="sort-item">{i}</li>)}
       </ul>
     );
