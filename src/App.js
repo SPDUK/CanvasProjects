@@ -9,6 +9,7 @@ import Projects from './Projects/Projects';
 import Snake from './Projects/Snake/Snake';
 import Gravity from './Projects/Gravity/Gravity';
 import BouncingBalls from './Projects/BouncingBalls/BouncingBalls';
+import VisualizedSort from './Projects/VisualizedSort/VisualizedSort';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
               <Route path="/snake" exact component={Snake} />
               <Route path="/gravity" exact component={Gravity} />
               <Route path="/bouncingballs" exact component={BouncingBalls} />
+              <Route path="/visualizedsort" exact component={VisualizedSort} />
             </Switch>
           </ReactAux>
         </HashRouter>

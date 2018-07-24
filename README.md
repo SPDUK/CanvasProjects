@@ -3,6 +3,7 @@
 #### https://spduk.github.io/Quick-Projects
 
 Simply install. Needs npm-run-all to watch scss & JS files at the same time.
+A lot of things don't work on certain browsers or mobile, but if you use chrome it probably works.
 
 ```
 npm install && npm install npm-run-all --save-dev

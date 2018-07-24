@@ -43,15 +43,15 @@ export default class Projects extends Component {
               <div className="column projects-grid-item is-half-tablet">
                 <ProjectCard
                   imageURL="https://res.cloudinary.com/dmjolhdaq/image/upload/v1531616439/QuickProjects/bouncingballs-4by3.jpg"
-                  name="Snake"
+                  name="Visualized Sort"
                   desc="Words words"
-                  link="/bouncingballs"
+                  link="/visualizedsort"
                 />
               </div>
               <div className="column projects-grid-item is-half-tablet">
                 <ProjectCard
                   imageURL="https://res.cloudinary.com/dmjolhdaq/image/upload/v1531616439/QuickProjects/bouncingballs-4by3.jpg"
-                  name="Snake"
+                  name="Title"
                   desc="Words words"
                   link="/bouncingballs"
                 />

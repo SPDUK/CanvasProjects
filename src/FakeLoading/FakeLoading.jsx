@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import anime from 'animejs';
+import { withRouter } from 'react-router-dom';
+
 import './fakeloading.css';
-import { Link, withRouter } from 'react-router-dom';
 
 class FakeLoading extends Component {
-  constructor() {
-    super();
-    this.state = {
-      finished: false
-    };
-  }
   componentDidMount = () => {
     // when loading is finished it will call this function and push to the projects homepage
     const loadingFinished = () => {
