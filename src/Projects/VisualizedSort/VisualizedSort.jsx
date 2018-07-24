@@ -41,6 +41,7 @@ export default class VisualizedSort extends Component {
             <div onClick={this.sort} className="button is-success">
               Sort Numbers
             </div>
+            <p>If you click too much you'll break it.</p>
           </div>
         </div>
       </ReactAux>
