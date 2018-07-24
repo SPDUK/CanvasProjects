@@ -1,3 +1,26 @@
+// contains the css for sortitem also
 .sort {
-  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 30px;
+  &-item {
+    transition: 0.3s ease-out;
+    flex-basis: 10%;
+    height: 50px;
+    background: rgb(180, 180, 180);
+    border: 2px solid black;
+    color: black;
+    text-align: center;
+    line-height: 50px;
+    order: 0;
+  }
+  &-buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+    div {
+      margin-right: 10px;
+    }
+  }
 }
