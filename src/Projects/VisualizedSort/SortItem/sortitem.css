@@ -1,7 +1,12 @@
-.sort-item {
-  flex-basis: 20%;
-  height: 30px;
-  background: #d4d4d4;
-  border: 2px solid black;
-  color: rgba(255, 255, 255, 0.795);
-  text-align: center; }
+.sort {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%; }
+  .sort-item {
+    flex-basis: 10%;
+    height: 50px;
+    background: #d4d4d4;
+    border: 2px solid black;
+    color: black;
+    text-align: center;
+    line-height: 50px; }

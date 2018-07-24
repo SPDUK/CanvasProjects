@@ -10,8 +10,10 @@ export default class VisualizedSort extends Component {
     return (
       <ReactAux>
         <Navbar />
-        <div className="container sort">
-          <SortItem />
+        <div className="container">
+          <div className="sort">
+            <SortItem />
+          </div>
         </div>
       </ReactAux>
     );

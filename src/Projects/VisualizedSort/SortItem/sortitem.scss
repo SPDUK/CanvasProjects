@@ -1,12 +1,14 @@
 .sort {
-  // display: flex;
-  // flex-wrap: wrap;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
   &-item {
-    flex-basis: 20%;
-    height: 30px;
+    flex-basis: 10%;
+    height: 50px;
     background: rgb(212, 212, 212);
     border: 2px solid black;
-    color: rgba(255, 255, 255, 0.795);
+    color: black;
     text-align: center;
+    line-height: 50px;
   }
 }
