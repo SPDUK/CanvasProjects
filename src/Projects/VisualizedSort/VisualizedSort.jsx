@@ -6,9 +6,18 @@ import './VisualizedSort.css';
 import SortItem from './SortItem/SortItem';
 
 export default class VisualizedSort extends Component {
+  constructor() {
+    super();
+    this.state = {
+      currentNum: 0
+    };
+  }
   randomizeItems = () => {
     const sItems = document.querySelectorAll('.sort-item');
     for (let i = 0; i < sItems.length; i += 1) {
+      this.setState({
+        currentNum: 0
+      });
       sItems[i].style.order = 0;
       sItems[i].style.order = Math.floor(Math.random() * sItems.length) + 1;
       sItems[i].style.background = 'rgb(245, 245, 242)';
@@ -19,6 +28,15 @@ export default class VisualizedSort extends Component {
     const sItems = document.querySelectorAll('.sort-item');
     for (let i = 0; i < sItems.length; i += 1) {
       setTimeout(() => {
+        if (i === 49) {
+          this.setState({
+            currentNum: 'Completed!'
+          });
+        } else {
+          this.setState({
+            currentNum: i + 1
+          });
+        }
         sItems[i].style.order = sItems[i].innerHTML;
         sItems[i].style.background = 'rgb(142, 255, 127)';
       }, 300 * i);
@@ -31,6 +49,10 @@ export default class VisualizedSort extends Component {
         <Navbar />
         <div className="container">
           <div className="sort">
+            <p className="is-size-4">
+              Current number being sorted:{' '}
+              <span className="is-size-3">{this.state.currentNum}</span>
+            </p>
             <SortItem randomizeItems={this.randomizeItems} />
           </div>
           <div className="sort-buttons">

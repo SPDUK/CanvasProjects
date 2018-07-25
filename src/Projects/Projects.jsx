@@ -11,7 +11,7 @@ export default class Projects extends Component {
   componentDidMount() {
     console.log(
       `%c ________________________________________
-<  Hire Me : spdevuk@gmail.com           >
+<  Email Me : spdevuk@gmail.com           >
  ----------------------------------------
         \\   ^__^
          \\  (oo)\\_______
