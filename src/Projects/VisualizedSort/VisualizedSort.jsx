@@ -10,12 +10,12 @@ export default class VisualizedSort extends Component {
   constructor() {
     super();
     this.state = {
-      currentNum: 0
+      currentNum: 0,
+      firstTime: true
     };
   }
   randomizeItems = () => {
     const sItems = document.querySelectorAll('.sort-item');
-
     for (let i = 0; i < sItems.length; i += 1) {
       sItems[i].style.background = 'rgb(192, 192, 192)';
       this.setState({
@@ -30,10 +30,14 @@ export default class VisualizedSort extends Component {
   };
 
   sort = () => {
+    let delayTimer = 0;
     this.setState({
       currentNum: 0
     });
-    this.randomizeItems();
+    if (!this.state.firstTime) {
+      this.randomizeItems();
+      delayTimer = 2200;
+    }
     setTimeout(() => {
       this.visualizePercent();
       const sItems = document.querySelectorAll('.sort-item');
@@ -52,7 +56,10 @@ export default class VisualizedSort extends Component {
           sItems[i].style.background = 'rgb(142, 255, 127)';
         }, 300 * i);
       }
-    }, 2200);
+    }, delayTimer);
+    this.setState({
+      firstTime: false
+    });
   };
 
   visualizePercent = () => {
