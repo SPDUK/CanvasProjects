@@ -58,9 +58,9 @@ export default class Projects extends Component {
               </div>
               <div className="column projects-grid-item is-half-tablet">
                 <ProjectCard
-                  imageURL="https://res.cloudinary.com/dmjolhdaq/image/upload/v1531616439/QuickProjects/bouncingballs-4by3.jpg"
+                  imageURL="https://res.cloudinary.com/dmjolhdaq/image/upload/v1532545980/QuickProjects/visualizedsort.jpg"
                   name="Visualized Sort"
-                  desc="Words words"
+                  desc="A very weird example of an algorithm, using flexbox orders to sort the items into the correct positions"
                   link="/visualizedsort"
                 />
               </div>
@@ -68,8 +68,8 @@ export default class Projects extends Component {
                 <ProjectCard
                   imageURL="https://res.cloudinary.com/dmjolhdaq/image/upload/v1531616439/QuickProjects/bouncingballs-4by3.jpg"
                   name="Title"
-                  desc="Words words"
-                  link="/bouncingballs"
+                  desc="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum id ad aliquam incidunt nostrum, maiores in nihil iure voluptate neque  sapiente!"
+                  link="/visualizedsort"
                 />
               </div>
             </div>
