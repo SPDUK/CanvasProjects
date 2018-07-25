@@ -26,23 +26,26 @@ export default class VisualizedSort extends Component {
   };
 
   sort = () => {
-    this.visualizePercent();
-    const sItems = document.querySelectorAll('.sort-item');
-    for (let i = 0; i < sItems.length; i += 1) {
-      setTimeout(() => {
-        if (i === 49) {
-          this.setState({
-            currentNum: 'Completed!'
-          });
-        } else {
-          this.setState({
-            currentNum: i + 1
-          });
-        }
-        sItems[i].style.order = sItems[i].innerHTML;
-        sItems[i].style.background = 'rgb(142, 255, 127)';
-      }, 300 * i);
-    }
+    this.randomizeItems();
+    setTimeout(() => {
+      this.visualizePercent();
+      const sItems = document.querySelectorAll('.sort-item');
+      for (let i = 0; i < sItems.length; i += 1) {
+        setTimeout(() => {
+          if (i === 49) {
+            this.setState({
+              currentNum: 'Completed!'
+            });
+          } else {
+            this.setState({
+              currentNum: i + 1
+            });
+          }
+          sItems[i].style.order = sItems[i].innerHTML;
+          sItems[i].style.background = 'rgb(142, 255, 127)';
+        }, 300 * i);
+      }
+    }, 700);
   };
 
   visualizePercent = () => {
