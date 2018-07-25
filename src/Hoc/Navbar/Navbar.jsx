@@ -65,6 +65,12 @@ const Navbar = () => (
             🔴
           </span>
         </Link>
+        <Link to="/visualizedsort" className="navbar-item">
+          Visualized Sort{' '}
+          <span aria-label="gravity" role="img">
+            📈
+          </span>
+        </Link>
         <div className="navbar-end">
           <a className="navbar-item" href="https://github.com/SPDUK">
             Github{' '}
