@@ -15,17 +15,24 @@ export default class VisualizedSort extends Component {
   }
   randomizeItems = () => {
     const sItems = document.querySelectorAll('.sort-item');
+
     for (let i = 0; i < sItems.length; i += 1) {
+      sItems[i].style.background = 'rgb(192, 192, 192)';
       this.setState({
         currentNum: 0
       });
-      sItems[i].style.order = 0;
-      sItems[i].style.order = Math.floor(Math.random() * sItems.length) + 1;
-      sItems[i].style.background = 'rgb(245, 245, 242)';
+      setTimeout(() => {
+        sItems[i].style.order = 0;
+        sItems[i].style.order = Math.floor(Math.random() * sItems.length) + 1;
+        sItems[i].style.background = 'rgb(245, 245, 242)';
+      }, 30 * i);
     }
   };
 
   sort = () => {
+    this.setState({
+      currentNum: 0
+    });
     this.randomizeItems();
     setTimeout(() => {
       this.visualizePercent();
@@ -45,14 +52,14 @@ export default class VisualizedSort extends Component {
           sItems[i].style.background = 'rgb(142, 255, 127)';
         }, 300 * i);
       }
-    }, 700);
+    }, 2200);
   };
 
   visualizePercent = () => {
     const percent = document.getElementById('percent');
     percent.style.width = '8px';
 
-    const percentBar = anime({
+    anime({
       targets: '#percent',
       width: '100%',
       easing: 'linear',
@@ -79,14 +86,12 @@ export default class VisualizedSort extends Component {
           </div>
           <div id="percent" className="percent" />
           <div className="sort-buttons">
-            <div onClick={this.randomizeItems} className="button is-warning">
-              Randomize Numbers
-            </div>
             <div onClick={this.sort} className="button is-success">
               Sort Numbers
             </div>
           </div>
           <p>If you click too much you'll break it.</p>
+          <p>To make it work properly.</p>
           <p>
             Loops through each item, then uses flexbox order to position it in
             the correct position.
