@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import anime from 'animejs';
+
 import Navbar from '../../Hoc/Navbar/Navbar';
 import ReactAux from '../../Hoc/ReactAux/ReactAux';
-
 import './VisualizedSort.css';
 import SortItem from './SortItem/SortItem';
 
@@ -25,6 +26,7 @@ export default class VisualizedSort extends Component {
   };
 
   sort = () => {
+    this.visualizePercent();
     const sItems = document.querySelectorAll('.sort-item');
     for (let i = 0; i < sItems.length; i += 1) {
       setTimeout(() => {
@@ -43,6 +45,23 @@ export default class VisualizedSort extends Component {
     }
   };
 
+  visualizePercent = () => {
+    const percent = document.getElementById('percent');
+    percent.style.width = '8px';
+
+    const percentBar = anime({
+      targets: '#percent',
+      width: '100%',
+      easing: 'linear',
+      background: 'rgb(142, 255, 127)',
+      loop: 50,
+      duration: 290,
+      update(anim) {
+        percent.innerHTML = `progress : ${Math.round(anim.progress)}% `;
+      }
+    });
+  };
+
   render() {
     return (
       <ReactAux>
@@ -55,6 +74,7 @@ export default class VisualizedSort extends Component {
             </p>
             <SortItem randomizeItems={this.randomizeItems} />
           </div>
+          <div id="percent" className="percent" />
           <div className="sort-buttons">
             <div onClick={this.randomizeItems} className="button is-warning">
               Randomize Numbers

@@ -24,6 +24,15 @@
     .sort-buttons div {
       margin-right: 10px; }
 
+.percent {
+  margin-top: 5px;
+  height: 30px;
+  width: 0px;
+  border: 1px solid rgba(37, 37, 37, 0.315);
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #ffa652; }
+
 .super-sekret-msg {
   text-align: center;
   color: #fafafa46; }

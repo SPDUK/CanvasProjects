@@ -29,6 +29,17 @@
   }
 }
 
+.percent {
+  margin-top: 5px;
+  height: 30px;
+  width: 0px;
+  border: 1px solid rgba(37, 37, 37, 0.315);
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: rgb(255, 166, 82);
+}
+
+// this is purposefully in the wrong css file because it's a super sekrit msg.
 .super-sekret-msg {
   text-align: center;
   color: #fafafa46;
