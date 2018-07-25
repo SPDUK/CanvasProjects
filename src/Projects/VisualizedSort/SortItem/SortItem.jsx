@@ -22,7 +22,7 @@ const arr = [
   19,
   20,
   21,
-  21,
+  22,
   23,
   24,
   25,
@@ -60,13 +60,13 @@ export default class SortItem extends Component {
 
   render() {
     return (
-      <ul className="sort container">
+      <div className="sort container">
         {arr.map(i => (
-          <li key={i} className="sort-item">
+          <article key={i} className="sort-item">
             {i}
-          </li>
+          </article>
         ))}
-      </ul>
+      </div>
     );
   }
 }

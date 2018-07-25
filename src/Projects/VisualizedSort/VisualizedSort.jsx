@@ -6,25 +6,24 @@ import './VisualizedSort.css';
 import SortItem from './SortItem/SortItem';
 
 export default class VisualizedSort extends Component {
-  randomizeItems() {
+  randomizeItems = () => {
     const sItems = document.querySelectorAll('.sort-item');
-    for (let i = 0; i < sItems.length; i++) {
+    for (let i = 0; i < sItems.length; i += 1) {
       sItems[i].style.order = 0;
       sItems[i].style.order = Math.floor(Math.random() * sItems.length) + 1;
-      sItems[i].style.background = 'rgb(180, 180, 180)';
+      sItems[i].style.background = 'rgb(245, 245, 242)';
     }
-  }
+  };
 
-  // eslint-disable-next-line
-    sort() {
+  sort = () => {
     const sItems = document.querySelectorAll('.sort-item');
-    for (let i = 0; i < sItems.length; i++) {
+    for (let i = 0; i < sItems.length; i += 1) {
       setTimeout(() => {
         sItems[i].style.order = sItems[i].innerHTML;
         sItems[i].style.background = 'rgb(142, 255, 127)';
       }, 300 * i);
     }
-  }
+  };
 
   render() {
     return (
@@ -41,8 +40,12 @@ export default class VisualizedSort extends Component {
             <div onClick={this.sort} className="button is-success">
               Sort Numbers
             </div>
-            <p>If you click too much you'll break it.</p>
           </div>
+          <p>If you click too much you'll break it.</p>
+          <p>
+            Loops through each item, then uses flexbox order to position it in
+            the correct position.
+          </p>
         </div>
       </ReactAux>
     );

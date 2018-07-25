@@ -5,14 +5,18 @@
   margin-top: 30px; }
   .sort-item {
     transition: 0.3s ease-out;
-    flex-basis: 10%;
+    flex-basis: 20%;
     height: 50px;
-    background: #b4b4b4;
+    background: silver;
     border: 2px solid black;
+    border-radius: 4px;
     color: black;
     text-align: center;
     line-height: 50px;
     order: 0; }
+    @media (min-width: 600px) {
+      .sort-item {
+        flex-basis: 10%; } }
   .sort-buttons {
     display: flex;
     justify-content: flex-start;
