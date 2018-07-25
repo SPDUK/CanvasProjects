@@ -63,3 +63,11 @@ npm start
 - When hovering near a ball it grows, when you hover away it shrinks back down to normal size.
 
 ---
+
+#### Visualized Sort
+
+##### Made with Vanilla JS & Flexbox
+- On page load the numbers come in (1-50) and then when you click sort numbers they will be sorted from 1 - 50, moving around and turning green when sorted.
+- Uses anime JS to also show a little progress bar for each individual item. Randomizes and resorts if you click sort numbers again.
+
+---
